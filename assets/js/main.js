@@ -31,11 +31,20 @@ function showCards (coffe) {
     divTitle.textContent = coffe.title;
 
     const divDescription = document.createElement('p') 
+    divDescription.classList.add(
+                'mt-2',
+                'leading-5',
+                'text-sm',
+                'text-justify',
+                'text-slate-900',
+                'font-semibold'
+            )
     divDescription.textContent = coffe.description;
 
     const divImg = document.createElement('img')
     divImg.classList.add(
-            'h-60', 
+            'h-60',
+            'rounded', 
             'w-60'
         )
     divImg.setAttribute('src', coffe.image);
