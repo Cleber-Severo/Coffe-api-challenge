@@ -33,13 +33,13 @@ button.addEventListener('click', () => {
         divDescription.textContent = coffe.description;
 
         const divImg = document.createElement('img')
-        divImg.classList.add('h-40')
+        divImg.classList.add('h-60', 'w-60')
         divImg.setAttribute('src', coffe.image);
 
         cardContent.appendChild(divTitle)
-        cardContent.appendChild(divDescription)
         cardContent.appendChild(divImg)
-        cardContent.classList.add('mb-20', 'p-10', 'bg-gray-200', 'rounded-xl');
+        cardContent.appendChild(divDescription)
+        cardContent.classList.add('mb-20', 'p-10', 'bg-gray-200', 'rounded-xl', 'flex','flex-col', 'justfy-center', 'items-center');
         console.log(cardContent);
         card.appendChild(cardContent)
         card.classList.add('p-10');
