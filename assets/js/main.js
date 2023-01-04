@@ -28,14 +28,27 @@ function showCards (coffe) {
     divDescription.textContent = coffe.description;
 
     const divImg = document.createElement('img')
-    divImg.classList.add('h-60', 'w-60')
+    divImg.classList.add(
+            'h-60', 
+            'w-60'
+        )
     divImg.setAttribute('src', coffe.image);
 
     cardContent.appendChild(divTitle)
     cardContent.appendChild(divImg)
     cardContent.appendChild(divDescription)
-    cardContent.classList.add('p-10', 'bg-gray-200', 'rounded-xl', 'flex','flex-col', 'justfy-center', 'items-center');
+    cardContent.classList.add(
+            'p-10', 
+            'bg-gray-200', 
+            'rounded-xl', 
+            'flex',
+            'flex-col', 
+            'justfy-center', 
+            'items-center'
+        );
+    
     console.log(cardContent);
+    
     card.appendChild(cardContent)
     card.classList.add('p-10');
     
