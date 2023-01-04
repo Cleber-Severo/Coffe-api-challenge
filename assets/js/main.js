@@ -7,8 +7,6 @@ async function getAPI () {
         const url = await fetch('https://api.sampleapis.com/coffee/hot')
         let coffeList = await url.json();
         console.log(coffeList)
-        // console.log(coffeList[0])
-        // console.log(coffeList[0].image)
         coffeItens = coffeList;
 
     } catch (error) {
@@ -39,12 +37,12 @@ button.addEventListener('click', () => {
         cardContent.appendChild(divTitle)
         cardContent.appendChild(divImg)
         cardContent.appendChild(divDescription)
-        cardContent.classList.add('mb-20', 'p-10', 'bg-gray-200', 'rounded-xl', 'flex','flex-col', 'justfy-center', 'items-center');
+        cardContent.classList.add('p-10', 'bg-gray-200', 'rounded-xl', 'flex','flex-col', 'justfy-center', 'items-center');
         console.log(cardContent);
         card.appendChild(cardContent)
         card.classList.add('p-10');
         
-       
+       button.style.display = 'none';
     }))
 
     
