@@ -1,20 +1,16 @@
 const button = document.getElementById('btn')
-const card = document.querySelector('.card-container');
-let coffeItens; 
+const card = document.querySelector('.card-container')
 
 async function getAPI () {
     try {
         const url = await fetch('https://api.sampleapis.com/coffee/hot')
-        let coffeList = await url.json();
+        let coffeList = await url.json()
         console.log(coffeList)
-        coffeItens = coffeList;
 
         coffeList.map(coffe => showCards(coffe))
 
-        //showCards();
-
     } catch (error) {
-        
+     alert('Cannot load API')    
     }
 }
 
@@ -61,7 +57,7 @@ function showCards (coffe) {
             'flex-col', 
             'justfy-center', 
             'items-center'
-        );
+        )
     
     console.log(cardContent)
     
