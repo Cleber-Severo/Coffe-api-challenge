@@ -39,8 +39,10 @@ button.addEventListener('click', () => {
         cardContent.appendChild(divTitle)
         cardContent.appendChild(divDescription)
         cardContent.appendChild(divImg)
+        cardContent.classList.add('mb-20', 'p-10', 'bg-gray-200', 'rounded-xl');
         console.log(cardContent);
         card.appendChild(cardContent)
+        card.classList.add('p-10');
         
        
     }))
