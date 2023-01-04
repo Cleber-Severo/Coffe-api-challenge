@@ -21,7 +21,13 @@ async function getAPI () {
 function showCards (coffe) {
     const cardContent = document.createElement('div') 
         
-    const divTitle = document.createElement('h3') 
+    const divTitle = document.createElement('h3')
+    divTitle.classList.add(
+            'font-bold',
+            'text-lg',
+            'text-yellow-900',
+            'mb-2'
+        ) 
     divTitle.textContent = coffe.title;
 
     const divDescription = document.createElement('p') 
@@ -39,7 +45,8 @@ function showCards (coffe) {
     cardContent.appendChild(divDescription)
     cardContent.classList.add(
             'p-10', 
-            'bg-gray-200', 
+            'bg-yellow-800',
+            'bg-opacity-80', 
             'rounded-xl', 
             'flex',
             'flex-col', 
@@ -50,7 +57,6 @@ function showCards (coffe) {
     console.log(cardContent);
     
     card.appendChild(cardContent)
-    card.classList.add('p-10');
     
 }
 
