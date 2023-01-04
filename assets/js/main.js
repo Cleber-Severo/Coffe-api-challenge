@@ -39,7 +39,7 @@ function showCards (coffe) {
                 'text-slate-900',
                 'font-semibold'
             )
-    divDescription.textContent = coffe.description;
+    divDescription.textContent = coffe.description
 
     const divImg = document.createElement('img')
     divImg.classList.add(
@@ -47,7 +47,7 @@ function showCards (coffe) {
             'rounded', 
             'w-60'
         )
-    divImg.setAttribute('src', coffe.image);
+    divImg.setAttribute('src', coffe.image)
 
     cardContent.appendChild(divTitle)
     cardContent.appendChild(divImg)
@@ -63,12 +63,12 @@ function showCards (coffe) {
             'items-center'
         );
     
-    console.log(cardContent);
+    console.log(cardContent)
     
     card.appendChild(cardContent)
     
 }
 
-getAPI();
+getAPI()
 
 
