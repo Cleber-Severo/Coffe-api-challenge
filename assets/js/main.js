@@ -9,7 +9,7 @@ async function getAPI () {
         let coffeList = await url.json()
         console.log(coffeList)
 
-    //creating a card to all itens on the array by calling tue function
+    //creating a card to all itens on the array by calling the function
         coffeList.map(coffe => showCards(coffe)) 
 
     } catch (error) {
