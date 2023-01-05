@@ -5,10 +5,10 @@
 
 ### The project has been made with HTML, CSS, JavaScript and Tailwind, having the best practices looking for perfomrmace, good styling and responsive design.
 
-[<img width=70% textAlign="center" src="./assets/images/desktop.png" alt="desktop">](https://cleber-severo.github.io/Coffe-api-challenge/)
+[<img width=80% textAlign="center" src="./assets/images/desktop.png" alt="desktop">](https://cleber-severo.github.io/Coffe-api-challenge/)
 
 ### Mobile screen
-[<img  height=500 width=40% textAlign="center" src="./assets/images/mobile.png" alt="mobile">](https://cleber-severo.github.io/Coffe-api-challenge/)
+[<img  height=500 width=30% textAlign="center" src="./assets/images/mobile.png" alt="mobile">](https://cleber-severo.github.io/Coffe-api-challenge/)
 
 ## Techs implemented:
  <div style="display: inline_block">
