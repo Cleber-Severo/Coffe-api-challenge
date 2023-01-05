@@ -1,8 +1,9 @@
 # Coffee Challenge 
 
 ## Introduction <br> 
-### Hello, thank you for taking a look on this project, it is a challenge with the idea of reading the API data and displaying the info with javascript
-<br>
+### Hello, thank you for taking a look on this project, it is a challenge with the idea of reading the API data and displaying the info with javascript.
+
+### The project has been made with HTML, CSS, JavaScript and Tailwind, having the best practices looking for perfomrmace, good styling and responsive design.
 
 ## Techs implemented:
  <div style="display: inline_block">
