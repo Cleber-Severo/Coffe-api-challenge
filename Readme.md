@@ -1,6 +1,8 @@
 # Coffee Challenge 
 
-## Hello, thank you for taking a look on this project, it is a challenge with the idea of reading the API data and displaying the info with javascript
+## Introduction <br> 
+Hello, thank you for taking a look on this project, it is a challenge with the idea of reading the API data and displaying the info with javascript
+<br>
 
 ## Techs implemented:
  <div style="display: inline_block">
