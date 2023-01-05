@@ -55,7 +55,7 @@ function showCards (coffe) {
      const lastIngredient = coffe.ingredients.slice(-1)
 
 //inserting the ingredients by mapping the array of ingredients
-    coffe.ingredients.map((ingredient, index) => {
+    coffe.ingredients.map(ingredient => {
         const divIngredient = document.createElement('small')
        
         //checks if is the last ingredient or not
