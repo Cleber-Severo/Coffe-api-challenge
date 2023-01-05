@@ -1,19 +1,23 @@
-const button = document.getElementById('btn')
+/*  ---setting Global variables---   */
 const card = document.querySelector('.card-container')
 
+
+/*  function to load the API data  */
 async function getAPI () {
     try {
         const url = await fetch('https://api.sampleapis.com/coffee/hot')
         let coffeList = await url.json()
         console.log(coffeList)
 
-        coffeList.map(coffe => showCards(coffe))
+    //creating a card to all itens on the array by calling tue function
+        coffeList.map(coffe => showCards(coffe)) 
 
     } catch (error) {
      alert('Cannot load API')    
     }
 }
 
+/*  Function that create all HTML DOM tags that holds and display the API info  */
 function showCards (coffe) {
     const cardContent = document.createElement('div') 
         
