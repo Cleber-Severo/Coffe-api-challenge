@@ -8,7 +8,7 @@
 [<img width=50% textAlign="center" src="./assets/images/mainScreenshot.png" alt="desktop">](https://cleber-severo.github.io/Coffe-api-challenge/)
 
 ### Mobile screen
-<img  height=500 width=30% textAlign="center" src="./assets/images/mobilescreenshot.png" alt="mobile">
+[<img  height=500 width=30% textAlign="center" src="./assets/images/mobilescreenshot.png" alt="mobile">](https://cleber-severo.github.io/Coffe-api-challenge/)
 
 ## Techs implemented:
  <div style="display: inline_block">
