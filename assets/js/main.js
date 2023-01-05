@@ -52,6 +52,7 @@ function showCards (coffe) {
     const divIngredients = document.createElement('p')
     divIngredients.textContent = "Ingredients: "
     
+//inserting the ingredients by mapping the array of ingredients
     coffe.ingredients.map(ingredient => {
         const divIngredient = document.createElement('small')
         divIngredient.textContent = `${ingredient}, `
