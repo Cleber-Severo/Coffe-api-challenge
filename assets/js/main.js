@@ -31,16 +31,16 @@ function showCards (coffe) {
     divTitle.textContent = coffe.title;
 
     const divDescription = document.createElement('p') 
+    divDescription.textContent = `Description: ${coffe.description}`
     divDescription.classList.add(
-                'mt-2',
+                'my-2',
                 'leading-5',
                 'text-sm',
                 'text-justify',
                 'text-slate-900',
                 'font-semibold'
             )
-    divDescription.textContent = coffe.description
-
+    
     const divImg = document.createElement('img')
     divImg.classList.add(
             'h-60',
@@ -49,8 +49,19 @@ function showCards (coffe) {
         )
     divImg.setAttribute('src', coffe.image)
 
+    const divIngredients = document.createElement('p')
+    divIngredients.textContent = "Ingredients: "
+    
+    coffe.ingredients.map(ingredient => {
+        const divIngredient = document.createElement('small')
+        divIngredient.textContent = `${ingredient}, `
+        divIngredients.appendChild(divIngredient)
+    })    
+
+
     cardContent.appendChild(divTitle)
     cardContent.appendChild(divImg)
+    cardContent.appendChild(divIngredients)
     cardContent.appendChild(divDescription)
     cardContent.classList.add(
             'p-10', 
@@ -63,7 +74,7 @@ function showCards (coffe) {
             'items-center'
         )
     
-    console.log(cardContent)
+    console.log(coffe.ingredients)
     
     card.appendChild(cardContent)
     
