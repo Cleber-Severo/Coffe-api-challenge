@@ -52,10 +52,16 @@ function showCards (coffe) {
     const divIngredients = document.createElement('p')
     divIngredients.textContent = "Ingredients: "
     
+     const lastIngredient = coffe.ingredients.slice(-1)
+
 //inserting the ingredients by mapping the array of ingredients
-    coffe.ingredients.map(ingredient => {
+    coffe.ingredients.map((ingredient, index) => {
         const divIngredient = document.createElement('small')
-        divIngredient.textContent = `${ingredient}, `
+       
+        //checks if is the last ingredient or not
+        ingredient == lastIngredient ? divIngredient.textContent = `${ingredient}` : divIngredient.textContent = `${ingredient}, `
+       
+      
         divIngredients.appendChild(divIngredient)
     })    
 
@@ -75,7 +81,6 @@ function showCards (coffe) {
             'items-center'
         )
     
-    console.log(coffe.ingredients)
     
     card.appendChild(cardContent)
     
