@@ -5,6 +5,8 @@
 
 ### The project has been made with HTML, CSS, JavaScript and Tailwind, having the best practices looking for perfomrmace, good styling and responsive design.
 
+[<img width=70% textAlign="center" src="./assets/images/mainScreenshot.png" alt="desktop">](https://cleber-severo.github.io/Coffe-api-challenge/)
+
 ## Techs implemented:
  <div style="display: inline_block">
   <img align="center" alt="HTML" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
