@@ -5,20 +5,30 @@ const card = document.querySelector('.card-container')
 /*  function to load the API data  */
 async function getAPI () {
     try {
-        const url = await fetch('https://api.sampleapis.com/coffee/hot')
-        let coffeList = await url.json()
-        console.log(coffeList)
+        const urlHotCofee = await fetch('https://api.sampleapis.com/coffee/hot')
+        let hotCofeeList = await urlHotCofee.json()
+        console.log(hotCofeeList)
 
     //creating a card to all itens on the array by calling the function
-        coffeList.map(coffe => showCards(coffe)) 
+        hotCofeeList.map(coffee => showCards(coffee))
 
     } catch (error) {
-     alert('Cannot load API')    
+        console.log('Cannot load Hot cofee API');    
+        console.log(error);    
+    }
+
+    try {
+        const urlColdCofee = await fetch('https://api.sampleapis.com/coffee/iced')
+        let coldCofeeList = await urlColdCofee.json()
+        console.log(coldCofeeList)
+        coldCofeeList.map(coffee => showCards(coffee))
+    } catch (error) {
+        console.log('Cannot load cold cofee API'); 
     }
 }
 
 /*  Function that create all HTML DOM tags that holds and display the API info  */
-function showCards (coffe) {
+function showCards (coffee) {
     const cardContent = document.createElement('div') 
         
     const divTitle = document.createElement('h3')
@@ -28,10 +38,10 @@ function showCards (coffe) {
             'text-yellow-900',
             'mb-2'
         ) 
-    divTitle.textContent = coffe.title;
+    divTitle.textContent = coffee.title
 
     const divDescription = document.createElement('p') 
-    divDescription.textContent = `Description: ${coffe.description}`
+    divDescription.textContent = `Description: ${coffee.description}`
     divDescription.classList.add(
                 'my-2',
                 'leading-5',
@@ -47,20 +57,21 @@ function showCards (coffe) {
             'rounded', 
             'w-60'
         )
-    divImg.setAttribute('src', coffe.image)
+    divImg.setAttribute('src', coffee.image)
 
     const divIngredients = document.createElement('p')
     divIngredients.textContent = "Ingredients: "
     
-     const lastIngredient = coffe.ingredients.slice(-1)
+     const lastIngredient = coffee.ingredients.slice(-1)
 
-//inserting the ingredients by mapping the array of ingredients
-    coffe.ingredients.map(ingredient => {
+    //inserting the ingredients by mapping the array of ingredients
+    coffee.ingredients.map(ingredient => {
         const divIngredient = document.createElement('small')
        
         //checks if is the last ingredient or not
-        ingredient == lastIngredient ? divIngredient.textContent = `${ingredient}` : divIngredient.textContent = `${ingredient}, `
-       
+        ingredient == lastIngredient
+         ? divIngredient.textContent = `${ingredient}` 
+         : divIngredient.textContent = `${ingredient}, `
       
         divIngredients.appendChild(divIngredient)
     })    
