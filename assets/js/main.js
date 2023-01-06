@@ -1,30 +1,34 @@
 /*  ---setting Global variables---   */
 const card = document.querySelector('.card-container')
 const select = document.getElementById('selectType')
-console.log(card);
+//console.log(card);
 
 /*  function to load the API data  */
-async function getAPI () {
+async function getAPI (type) {
+
+    card.innerHTML=''
+    
     try {
         const urlHotCofee = await fetch('https://api.sampleapis.com/coffee/hot')
         let hotCofeeList = await urlHotCofee.json()
-        console.log(hotCofeeList)
-
+        
     //creating a card to all itens on the array by calling the function
-        hotCofeeList.map(coffee => showCards(coffee, 'hot'))
+         if(type === 'all' || type === 'hot') {
+            hotCofeeList.map(coffee => showCards(coffee, 'hot'))
+        } 
 
     } catch (error) {
         console.log('Cannot load Hot cofee API');    
-        console.log(error);    
+        //console.log(error);    
     }
 
     try {
         const urlColdCofee = await fetch('https://api.sampleapis.com/coffee/iced')
         let coldCofeeList = await urlColdCofee.json()
-        console.log(coldCofeeList)
 
-        coldCofeeList.map(coffee => showCards(coffee, 'cold'))
-
+         if(type === 'all' || type === 'cold') {
+            coldCofeeList.map(coffee => showCards(coffee, 'cold'))
+         }
     } catch (error) {
         console.log('Cannot load cold cofee API'); 
     }
@@ -35,7 +39,7 @@ async function getAPI () {
 function showCards (coffee, type) {
     
     const cardContent = document.createElement('div') 
-    console.log(type);
+    
     typeColor = type === 'hot' ? 'text-yellow-300' : 'text-teal-200'
     const divType = document.createElement('small')
     divType.textContent = type
@@ -120,18 +124,20 @@ function showCards (coffee, type) {
     
     card.appendChild(cardContent)
 
-    cardContent.addEventListener('click', (e) => {
-        console.log(e.target);
-        console.log(coffee.description);
-    })
+    // cardContent.addEventListener('click', (e) => {
+    //     console.log(e.target);
+    //     console.log(coffee.description);
+    // })
     
 }
 
 select.addEventListener('change', ()=>{
     console.log(select.value);
+    getAPI(select.value)
 })
 
+document.addEventListener('load', getAPI('all'))
 
-getAPI()
+// getAPI('')
 
 
