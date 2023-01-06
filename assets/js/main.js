@@ -34,20 +34,19 @@ function showCards (coffee, type) {
     
     const cardContent = document.createElement('div') 
     console.log(type);
-    typeColor = type === 'hot' ? 'text-yellow-300' : 'text-teal-500'
+    typeColor = type === 'hot' ? 'text-yellow-300' : 'text-teal-200'
     const divType = document.createElement('small')
-    divType.textContent = type + ' coffee'
+    divType.textContent = type
     divType.classList.add(
-            'bg-yellow-800',
-            'bg-opacity-50',
+            'bg-gray-900',
+            'bg-opacity-40',
             typeColor,
             'font-semibold',
+            'text-xs','-translate-y-8',
             'rounded-md',
             'px-2', 
             'py-1',
-            'absolute',
-            'right-3',
-            'top-3'
+            'mt-1'
         )
 
     const divTitle = document.createElement('h3')
@@ -86,21 +85,21 @@ function showCards (coffee, type) {
     //inserting the ingredients by mapping the array of ingredients
     coffee.ingredients.map(ingredient => {
         const divIngredient = document.createElement('small')
-       
         //checks if is the last ingredient or not
         ingredient == lastIngredient
          ? divIngredient.textContent = `${ingredient}` 
          : divIngredient.textContent = `${ingredient}, `
-      
+        
         divIngredients.appendChild(divIngredient)
     })    
 
+    divIngredients.classList.add('-translate-y-4')
 
-    cardContent.appendChild(divType)
     cardContent.appendChild(divTitle)
     cardContent.appendChild(divImg)
+    cardContent.appendChild(divType)
     cardContent.appendChild(divIngredients)
-    cardContent.appendChild(divDescription)
+    //cardContent.appendChild(divDescription)
     cardContent.classList.add(
             'p-10', 
             'bg-yellow-800',
