@@ -10,7 +10,7 @@ async function getAPI () {
         console.log(hotCofeeList)
 
     //creating a card to all itens on the array by calling the function
-        hotCofeeList.map(coffee => showCards(coffee))
+        hotCofeeList.map(coffee => showCards(coffee, 'hot'))
 
     } catch (error) {
         console.log('Cannot load Hot cofee API');    
@@ -21,16 +21,18 @@ async function getAPI () {
         const urlColdCofee = await fetch('https://api.sampleapis.com/coffee/iced')
         let coldCofeeList = await urlColdCofee.json()
         console.log(coldCofeeList)
-        coldCofeeList.map(coffee => showCards(coffee))
+
+        coldCofeeList.map(coffee => showCards(coffee, 'cold'))
+
     } catch (error) {
         console.log('Cannot load cold cofee API'); 
     }
 }
 
 /*  Function that create all HTML DOM tags that holds and display the API info  */
-function showCards (coffee) {
+function showCards (coffee, type) {
     const cardContent = document.createElement('div') 
-        
+    console.log(type);
     const divTitle = document.createElement('h3')
     divTitle.classList.add(
             'font-bold',
