@@ -1,6 +1,7 @@
 /*  ---setting Global variables---   */
 const card = document.querySelector('.card-container')
-
+const select = document.getElementById('selectType')
+console.log(card);
 
 /*  function to load the API data  */
 async function getAPI () {
@@ -29,6 +30,7 @@ async function getAPI () {
     }
 }
 
+
 /*  Function that create all HTML DOM tags that holds and display the API info  */
 function showCards (coffee, type) {
     
@@ -42,7 +44,8 @@ function showCards (coffee, type) {
             'bg-opacity-40',
             typeColor,
             'font-semibold',
-            'text-xs','-translate-y-8',
+            'text-xs',
+            '-translate-y-8',
             'rounded-md',
             'px-2', 
             'py-1',
@@ -109,13 +112,25 @@ function showCards (coffee, type) {
             'flex-col', 
             'justfy-center', 
             'items-center',
-            'relative'
+            'relative',
+            'hover:bg-opacity-90',
+            'hover:cursor-pointer'
         )
     
     
     card.appendChild(cardContent)
+
+    cardContent.addEventListener('click', (e) => {
+        console.log(e.target);
+        console.log(coffee.description);
+    })
     
 }
+
+select.addEventListener('change', ()=>{
+    console.log(select.value);
+})
+
 
 getAPI()
 
