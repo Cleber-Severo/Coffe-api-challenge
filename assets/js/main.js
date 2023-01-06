@@ -31,8 +31,25 @@ async function getAPI () {
 
 /*  Function that create all HTML DOM tags that holds and display the API info  */
 function showCards (coffee, type) {
+    
     const cardContent = document.createElement('div') 
     console.log(type);
+    typeColor = type === 'hot' ? 'text-yellow-300' : 'text-teal-500'
+    const divType = document.createElement('small')
+    divType.textContent = type + ' coffee'
+    divType.classList.add(
+            'bg-yellow-800',
+            'bg-opacity-50',
+            typeColor,
+            'font-semibold',
+            'rounded-md',
+            'px-2', 
+            'py-1',
+            'absolute',
+            'right-3',
+            'top-3'
+        )
+
     const divTitle = document.createElement('h3')
     divTitle.classList.add(
             'font-bold',
@@ -79,6 +96,7 @@ function showCards (coffee, type) {
     })    
 
 
+    cardContent.appendChild(divType)
     cardContent.appendChild(divTitle)
     cardContent.appendChild(divImg)
     cardContent.appendChild(divIngredients)
@@ -91,7 +109,8 @@ function showCards (coffee, type) {
             'flex',
             'flex-col', 
             'justfy-center', 
-            'items-center'
+            'items-center',
+            'relative'
         )
     
     
