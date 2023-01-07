@@ -153,8 +153,8 @@ function showCards (coffee, type) {
             'justfy-center', 
             'items-center',
             'relative',
-            'hover:bg-opacity-90',
-            'hover:cursor-pointer'
+            'hover:cursor-pointer',
+            'hover:bg-opacity-90'
         )
     
     

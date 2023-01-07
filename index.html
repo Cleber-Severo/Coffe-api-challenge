@@ -10,8 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    
+    <link rel="stylesheet" href="./assets/css/styles.css">
    
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="font-poppins bg-gray-100 ">
     
@@ -37,18 +39,21 @@
 
     <div class="
             flex 
-            px-6 
-            my-4 
+            px-7 
+            pr-10
+            mt-4 
             w-full
-            bg-red-100
+            justify-between
         "     
         id="filter-container">
 
-        <button class="bg-gray-300 px-4 py-2" id="allBtn">All</button>
-        <button class="bg-gray-300 px-4 py-2" id="hotBtn">Hot</button>
-        <button class="bg-gray-300 px-4 py-2" id="coldBtn">Cold</button>
+        <div>
+            <button class="bg-yellow-700 text-slate-100 px-4 py-2 rounded-lg font-semibold hover:border-2 hover:border-yellow-700 hover:bg-slate-100 hover:text-yellow-700" id="allBtn">All</button>
+            <button class="bg-yellow-700 text-slate-100 px-4 py-2 rounded-lg font-semibold hover:border-2 hover:border-yellow-700 hover:bg-slate-100 hover:text-yellow-700" id="hotBtn">Hot</button>
+            <button class="bg-yellow-700 text-slate-100 px-4 py-2 rounded-lg font-semibold hover:border-2 hover:border-yellow-700 hover:bg-slate-100 hover:text-yellow-700" id="coldBtn">Cold</button>
+        </div>
 
-        <input type="text" class="justify-self-end" id="filter">
+        <input type="text" class="px-3 py-2 bg-gray-200" id="filter" placeholder="Search...">
 
     </div>
     <div class="
