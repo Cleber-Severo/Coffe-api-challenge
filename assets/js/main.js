@@ -1,10 +1,10 @@
 /*  ---setting Global variables---   */
+const bodyDom = document.getElementsByTagName('body')
 const card = document.querySelector('.card-container')
 const filterInput = document.getElementById('filter')
 const allBtn = document.getElementById('allBtn');
 const hotBtn = document.getElementById('hotBtn');
 const coldBtn = document.getElementById('coldBtn');
-
 
 let coffeeList = []
 
@@ -53,9 +53,7 @@ function filterCoffee (value) {
 
     const filteredCoffee = []
      card.innerHTML=''
-    //console.log(value);
-    //console.log(coffeeList);
-
+    
     if(value === '') {
         getAPI('all');
         return 
@@ -69,6 +67,58 @@ function filterCoffee (value) {
     
     filteredCoffee.map(coffee => showCards(coffee))
     console.log(filteredCoffee);
+}
+
+function closeModal (modal) {
+    modal.style.display = 'none'
+}
+
+function modalCard (title, image) {
+
+    const modalWrapper = document.createElement('div')
+    const modal = document.createElement('div')
+    const closeBtn = document.createElement('button')
+    closeBtn.textContent = 'button'
+    const modalTitle = document.createElement('h3')
+    modalTitle.textContent = title
+    // const modalDescription = description
+    // const modalImg = divImg
+    console.log(cardInfo);
+    modalWrapper.classList.add(
+            'w-full', 
+            'h-full',
+            'flex',
+            'flex-col',
+            'justify-center',
+            'items-center',
+            'z-10',
+            'fixed',
+            'top-0',
+            'left-0'
+        )
+    modal.classList.add(
+            'w-3/5',
+            'h-3/5',
+            'p-10',
+            'bg-slate-100',
+            'drop-shadow-2xl',
+            'z-10'
+        )
+    
+    modal.appendChild(modalTitle)    
+    modal.appendChild(closeBtn)    
+    
+    closeBtn.addEventListener('click', closeModal)
+    modalWrapper.addEventListener('click', () => {
+        closeModal(modalWrapper)
+    })
+    // modal.appendChild(divImg)    
+    
+    modalWrapper.appendChild(modal)
+    //document.appendChild(modalWrapper)
+    card.parentNode.appendChild(modalWrapper)
+
+        
 }
 
 /*  Function that create all HTML DOM tags that holds and display the API info  */
@@ -157,13 +207,12 @@ function showCards (coffee, type) {
             'hover:bg-opacity-90'
         )
     
-    
     card.appendChild(cardContent)
 
-    // cardContent.addEventListener('click', (e) => {
-    //     console.log(e.target);
-    //     console.log(coffee.description);
-    // })
+    cardContent.addEventListener('click', (e) => {
+        cardInfo = e.currentTarget
+        modalCard(coffee.title, coffee.image);
+    })
     
 }
 
@@ -183,4 +232,5 @@ coldBtn.addEventListener('click', () => {
 })
 
 document.addEventListener('load', getAPI('all'))
-
+document.addEventListener('load', () => {
+})
