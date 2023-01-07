@@ -1,39 +1,71 @@
 /*  ---setting Global variables---   */
 const card = document.querySelector('.card-container')
 const select = document.getElementById('selectType')
+const filterInput = document.getElementById('filter')
+let coffeeList = []
+
 //console.log(card);
 
 /*  function to load the API data  */
-async function getAPI (type) {
-
+async function getAPI (type, value) {
     card.innerHTML=''
     
     try {
-        const urlHotCofee = await fetch('https://api.sampleapis.com/coffee/hot')
-        let hotCofeeList = await urlHotCofee.json()
+        const urlColdCofee = await fetch('https://api.sampleapis.com/coffee/iced');
+        const coldCofeeList = await urlColdCofee.json();
         
-    //creating a card to all itens on the array by calling the function
-         if(type === 'all' || type === 'hot') {
-            hotCofeeList.map(coffee => showCards(coffee, 'hot'))
-        } 
+        const urlHotCofee = await fetch('https://api.sampleapis.com/coffee/hot');
+        const hotCofeeList = await urlHotCofee.json();
+        
+        coffeeList = [...hotCofeeList, ...coldCofeeList]
+        console.log(coffeeList);
 
+    //creating a card to all itens on the array by calling the function
+        switch (type) {
+            case 'all':
+                await coldCofeeList.map(coffee => showCards(coffee, 'cold'))
+                await hotCofeeList.map(coffee => showCards(coffee, 'hot'))
+                break;
+            case 'hot':
+                await hotCofeeList.map(coffee => showCards(coffee, 'hot'))
+                break;
+
+            case 'cold':
+                await coldCofeeList.map(coffee => showCards(coffee, 'cold'))
+                break;
+
+        }
+
+
+       
     } catch (error) {
         console.log('Cannot load Hot cofee API');    
         //console.log(error);    
     }
-
-    try {
-        const urlColdCofee = await fetch('https://api.sampleapis.com/coffee/iced')
-        let coldCofeeList = await urlColdCofee.json()
-
-         if(type === 'all' || type === 'cold') {
-            coldCofeeList.map(coffee => showCards(coffee, 'cold'))
-         }
-    } catch (error) {
-        console.log('Cannot load cold cofee API'); 
-    }
+    
 }
 
+function filterCoffee (value) {
+
+    const filteredCoffee = []
+     card.innerHTML=''
+    //console.log(value);
+    //console.log(coffeeList);
+
+    if(value === '') {
+        getAPI('all');
+        return 
+    }
+
+    for (var i in coffeeList) {
+        if (coffeeList[i].title.includes(value)){
+            filteredCoffee.push(coffeeList[i])
+        }
+    }
+    
+    filteredCoffee.map(coffee => showCards(coffee))
+    console.log(filteredCoffee);
+}
 
 /*  Function that create all HTML DOM tags that holds and display the API info  */
 function showCards (coffee, type) {
@@ -131,9 +163,13 @@ function showCards (coffee, type) {
     
 }
 
-select.addEventListener('change', ()=>{
+select.addEventListener('change', (e)=>{
     console.log(select.value);
     getAPI(select.value)
+})
+
+filterInput.addEventListener('keyup', (e) => {
+    filterCoffee(filter.value);
 })
 
 document.addEventListener('load', getAPI('all'))
