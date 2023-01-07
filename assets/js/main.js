@@ -1,7 +1,11 @@
 /*  ---setting Global variables---   */
 const card = document.querySelector('.card-container')
-const select = document.getElementById('selectType')
 const filterInput = document.getElementById('filter')
+const allBtn = document.getElementById('allBtn');
+const hotBtn = document.getElementById('hotBtn');
+const coldBtn = document.getElementById('coldBtn');
+
+
 let coffeeList = []
 
 //console.log(card);
@@ -163,17 +167,20 @@ function showCards (coffee, type) {
     
 }
 
-select.addEventListener('change', (e)=>{
-    console.log(select.value);
-    getAPI(select.value)
-})
 
 filterInput.addEventListener('keyup', (e) => {
     filterCoffee(filter.value);
 })
 
+allBtn.addEventListener('click', () => {
+    getAPI('all')
+})
+hotBtn.addEventListener('click', () => {
+    getAPI('hot')
+})
+coldBtn.addEventListener('click', () => {
+    getAPI('cold')
+})
+
 document.addEventListener('load', getAPI('all'))
-
-// getAPI('')
-
 

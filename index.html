@@ -23,7 +23,8 @@
         ml-7 
         mt-5
         p-3 
-        inline-block 
+        block
+        w-40 
         px-6  
         text-center
         text-gray-700
@@ -34,14 +35,22 @@
         Coffee break
     </h1>
 
-    <select name="" id="selectType">
-        <option value="all">All</option>
-        <option value="hot">Hot</option>
-        <option value="cold">Cold</option>
-    </select>
+    <div class="
+            flex 
+            px-6 
+            my-4 
+            w-full
+            bg-red-100
+        "     
+        id="filter-container">
 
-    <input type="text" id="filter">
+        <button class="bg-gray-300 px-4 py-2" id="allBtn">All</button>
+        <button class="bg-gray-300 px-4 py-2" id="hotBtn">Hot</button>
+        <button class="bg-gray-300 px-4 py-2" id="coldBtn">Cold</button>
 
+        <input type="text" class="justify-self-end" id="filter">
+
+    </div>
     <div class="
         card-container 
 
