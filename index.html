@@ -21,9 +21,9 @@
         bg-gray-500	
         bg-opacity-40
         font-bold
-        
-        my-5
-        mb-2
+        my-o
+        sm:my-5
+        sm:mb-2
         p-3 
         block
         w-full 
@@ -32,13 +32,14 @@
         text-gray-700
         hover:bg-yellow-700	
         hover:bg-opacity-70
-        hover:text-gray-500
     ">
         Coffee break
     </h1>
 
     <div class="
-            flex 
+            flex
+            flex-col
+            sm:flex-row
             px-7 
             pr-10
             mt-4 
@@ -53,7 +54,20 @@
             <button class="bg-yellow-700 text-slate-100 px-4 py-2 rounded-lg font-semibold hover:border-2 hover:border-yellow-700 hover:bg-slate-100 hover:text-yellow-700" id="coldBtn">Cold</button>
         </div>
 
-        <input type="text" class="px-3 py-2 bg-gray-200 border-2 border-gray-400 rounded-lg" id="filter" placeholder="Search...">
+        <input 
+            class="
+                px-2
+                py-1
+                sm:px-3 
+                sm:py-2 
+                mt-3
+                sm:mt-0
+                bg-gray-200 
+                border-2 
+                border-gray-400 
+                rounded-lg
+            " 
+            type="text" id="filter" placeholder="Search...">
 
     </div>
     <div class="
