@@ -85,6 +85,7 @@ function modalCard (title, image, description, ingredients) {
     
     const closeBtn = document.createElement('button')
     closeBtn.textContent = 'button'
+    closeBtn.classList.add('modal-button', 'p-2', 'bg-gray-400')
 
     
     const modalImg = document.createElement('img')
@@ -106,6 +107,8 @@ function modalCard (title, image, description, ingredients) {
     modalDescription.textContent = description
 
     modalWrapper.classList.add(
+            'bg-gray-900',
+            'bg-opacity-30',
             'w-full', 
             'h-full',
             'flex',
@@ -118,6 +121,7 @@ function modalCard (title, image, description, ingredients) {
             'left-0'
         )
     modal.classList.add(
+            'modal',
             'w-3/5',
             'h-3/5',
             'p-10',
@@ -132,14 +136,9 @@ function modalCard (title, image, description, ingredients) {
     modal.appendChild(modalDescription)    
     modal.appendChild(closeBtn)    
     
-    closeBtn.addEventListener('click', closeModal)
-    modalWrapper.addEventListener('click', () => {
-        closeModal(modalWrapper)
-    })
-    // modal.appendChild(divImg)    
-    
+    closeBtn.addEventListener('click', () => {closeModal(modalWrapper)})
+
     modalWrapper.appendChild(modal)
-    //document.appendChild(modalWrapper)
     card.parentNode.appendChild(modalWrapper)
 
         
@@ -233,13 +232,11 @@ function showCards (coffee, type) {
     
     card.appendChild(cardContent)
 
-    cardContent.addEventListener('click', (e) => {
-        cardInfo = e.currentTarget
+    cardContent.addEventListener('click', () => {
         modalCard(coffee.title, coffee.image, coffee.description, divIngredients);
     })
     
 }
-
 
 filterInput.addEventListener('keyup', (e) => {
     filterCoffee(filter.value);
@@ -256,5 +253,4 @@ coldBtn.addEventListener('click', () => {
 })
 
 document.addEventListener('load', getAPI('all'))
-document.addEventListener('load', () => {
-})
+
