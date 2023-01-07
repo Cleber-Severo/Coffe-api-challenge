@@ -141,8 +141,7 @@ function modalCard (title, image, description, ingredients) {
     modal.classList.add(
             'modal',
             'w-80',
-            'sm:w-2/5',
-            'h-2/5',
+            'sm:w-2/5', 
             'sm:h-3/5',
             'p-7',
             'bg-slate-100',
