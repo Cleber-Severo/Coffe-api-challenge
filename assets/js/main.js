@@ -73,17 +73,38 @@ function closeModal (modal) {
     modal.style.display = 'none'
 }
 
-function modalCard (title, image) {
+function modalCard (title, image, description, ingredients) {
+
+    console.log(ingredients);
 
     const modalWrapper = document.createElement('div')
     const modal = document.createElement('div')
-    const closeBtn = document.createElement('button')
-    closeBtn.textContent = 'button'
+    
     const modalTitle = document.createElement('h3')
     modalTitle.textContent = title
-    // const modalDescription = description
-    // const modalImg = divImg
-    console.log(cardInfo);
+    
+    const closeBtn = document.createElement('button')
+    closeBtn.textContent = 'button'
+
+    
+    const modalImg = document.createElement('img')
+    modalImg.classList.add(
+            'h-28',
+            'w-28',
+            'rounded',
+            'mb-5' 
+        )
+
+    modalImg.setAttribute('src', image)
+        
+    const modalIngridients = ingredients
+    modalIngridients.classList.add(
+            'text-red-900'
+        )
+
+    const modalDescription = document.createElement('p')
+    modalDescription.textContent = description
+
     modalWrapper.classList.add(
             'w-full', 
             'h-full',
@@ -106,6 +127,9 @@ function modalCard (title, image) {
         )
     
     modal.appendChild(modalTitle)    
+    modal.appendChild(modalImg)    
+    modal.appendChild(modalIngridients)    
+    modal.appendChild(modalDescription)    
     modal.appendChild(closeBtn)    
     
     closeBtn.addEventListener('click', closeModal)
@@ -211,7 +235,7 @@ function showCards (coffee, type) {
 
     cardContent.addEventListener('click', (e) => {
         cardInfo = e.currentTarget
-        modalCard(coffee.title, coffee.image);
+        modalCard(coffee.title, coffee.image, coffee.description, divIngredients);
     })
     
 }
