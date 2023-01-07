@@ -80,14 +80,32 @@ function modalCard (title, image, description, ingredients) {
     const modalWrapper = document.createElement('div')
     const modal = document.createElement('div')
     
+    const modalHeader = document.createElement('div')
+
     const modalTitle = document.createElement('h3')
     modalTitle.textContent = title
+    modalTitle.classList.add(
+            'text-lg',
+            'font-semibold',
+            'text-yellow-800'
+        )
     
     const closeBtn = document.createElement('button')
-    closeBtn.textContent = 'button'
-    closeBtn.classList.add('modal-button', 'p-2', 'bg-gray-400')
+    closeBtn.textContent = 'Close'
+    closeBtn.classList.add('modal-button', 'p-2', 'text-red-400','bg-gray-900','bg-opacity-10' , 'font-semibold', 'text-xl')
 
-    
+    modalHeader.classList.add(
+            'flex',
+            'justify-between',
+            'items-center',
+            'border-b-2',
+            'border-gray-400',
+            'mb-3',
+            'pb-3'
+        )
+    modalHeader.appendChild(modalTitle)
+    modalHeader.appendChild(closeBtn)
+
     const modalImg = document.createElement('img')
     modalImg.classList.add(
             'h-28',
@@ -122,19 +140,20 @@ function modalCard (title, image, description, ingredients) {
         )
     modal.classList.add(
             'modal',
-            'w-3/5',
-            'h-3/5',
-            'p-10',
+            'w-80',
+            'sm:w-2/5',
+            'h-2/5',
+            'sm:h-3/5',
+            'p-7',
             'bg-slate-100',
             'drop-shadow-2xl',
             'z-10'
         )
     
-    modal.appendChild(modalTitle)    
+    modal.appendChild(modalHeader)    
     modal.appendChild(modalImg)    
     modal.appendChild(modalIngridients)    
     modal.appendChild(modalDescription)    
-    modal.appendChild(closeBtn)    
     
     closeBtn.addEventListener('click', () => {closeModal(modalWrapper)})
 
