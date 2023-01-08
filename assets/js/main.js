@@ -263,8 +263,15 @@ function showCards (coffee, type) {
     
 }
 
-filterInput.addEventListener('keyup', (e) => {
-    filterCoffee(filter.value);
+filterInput.addEventListener('keyup', () => {
+   
+    /*  setting the first letter to uppercase
+        in other words, capitalizing the input  */
+    const inputFirstLetter = filterInput.value.charAt(0).toUpperCase(); //firstletter to uppercase
+    const inputAfterFirst = filterInput.value.slice(1)  //selecting the rest of the string
+    const inputCapitalized =  inputFirstLetter + inputAfterFirst //concatenating both of them
+
+    filterCoffee(inputCapitalized);
 })
 
 allBtn.addEventListener('click', () => {
