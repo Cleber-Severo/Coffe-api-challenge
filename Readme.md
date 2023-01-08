@@ -15,7 +15,7 @@
 [<img  height=500 width=30% textAlign="center" src="./assets/images/mobileV2.png" alt="mobile">](https://cleber-severo.github.io/Coffe-api-challenge/)]
 
 ## Modal on mobile in landscape
-[<img  height=500 width=30% textAlign="center" src="./assets/images/mobileV2_landscape.png" alt="mobile">](https://cleber-severo.github.io/Coffe-api-challenge/)]
+[<img  height=500 width=30% textAlign="center" src="./assets/images/mobileV2_modal_landscape.png" alt="mobile">](https://cleber-severo.github.io/Coffe-api-challenge/)]
 
 ## Techs implemented:
  <div style="display: inline_block">
