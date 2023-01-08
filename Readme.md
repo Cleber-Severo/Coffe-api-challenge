@@ -1,14 +1,21 @@
 # Coffee Challenge 
 
 ## Introduction <br> 
-### Hello, thank you for taking a look on this project, it is a challenge with the idea of reading the API data and displaying the info with javascript. You can access by the [link](https://cleber-severo.github.io/Coffe-api-challenge/)
+### Hello, thank you for taking a look on this project, it is a challenge with the idea of reading the coffee API data with cold and hot coffees and displaying the basic info on cards that can be clicked to get full information. It is possible to filter the coffees by cold and hot and search thjem by title on the inputfield on the top of the screen<br>This is a updated version with more features and you can access it by the [link](https://cleber-severo.github.io/Coffe-api-challenge/)
 
 ### The project has been made with HTML, CSS, JavaScript and Tailwind, having the best practices looking for perfomrmace, good styling and responsive design.
 
-[<img width=80% textAlign="center" src="./assets/images/desktop.png" alt="desktop">](https://cleber-severo.github.io/Coffe-api-challenge/)
+
+[<img width=80% textAlign="center" src="./assets/images/desktopV2.png" alt="desktop">](https://cleber-severo.github.io/Coffe-api-challenge/)
+
+## Searching for an especific coffee
+[<img width=80% textAlign="center" src="./assets/images/desktopV2_search.png" alt="desktop">](https://cleber-severo.github.io/Coffe-api-challenge/)
 
 ### Mobile screen
-[<img  height=500 width=30% textAlign="center" src="./assets/images/mobile.png" alt="mobile">](https://cleber-severo.github.io/Coffe-api-challenge/)
+[<img  height=500 width=30% textAlign="center" src="./assets/images/mobileV2.png" alt="mobile">](https://cleber-severo.github.io/Coffe-api-challenge/)]
+
+## Modal on mobile in landscape
+[<img  height=500 width=30% textAlign="center" src="./assets/images/mobileV2_landscape.png" alt="mobile">](https://cleber-severo.github.io/Coffe-api-challenge/)]
 
 ## Techs implemented:
  <div style="display: inline_block">
