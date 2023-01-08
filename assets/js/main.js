@@ -99,7 +99,8 @@ function modalCard (title, image, description, ingredients) {
             'items-center',
             'border-b-2',
             'border-gray-400',
-            'mb-3',
+            'mb-10',
+            'sm:mb-3',
             'pb-3'
         )
     modalHeader.appendChild(modalTitle)
@@ -107,21 +108,36 @@ function modalCard (title, image, description, ingredients) {
 
     const modalImg = document.createElement('img')
     modalImg.classList.add(
-            'h-28',
-            'w-28',
+            'w-3/5',
+            'h-2/5',
+            'sm:w-3/5',
+            'sm:h-2/5',
+            'landscape:w-2/5',
+            'landscape:h-3/5',
             'rounded',
-            'mb-5' 
+            'float-left',
+            'p-3' 
         )
 
     modalImg.setAttribute('src', image)
         
     const modalIngridients = ingredients
     modalIngridients.classList.add(
-            'text-red-900'
+            'text-red-900',
+            'mt-4',
+            'block'
         )
 
     const modalDescription = document.createElement('p')
-    modalDescription.textContent = description
+    modalDescription.textContent = 'INFO: '+ description
+    modalDescription.classList.add(
+        'pt-1',
+        'h-2/5',
+        'sm:h-3/5',
+        'text-justify',
+        'text-sm',
+        'overflow-auto'
+    )
 
     modalWrapper.classList.add(
             'modal-wrapper',
@@ -140,20 +156,24 @@ function modalCard (title, image, description, ingredients) {
         )
     modal.classList.add(
             'modal',
-            'w-80',
-            'sm:w-2/5', 
-            'h-4/5',
-            'sm:h-3/5',
-            'p-7',
             'bg-slate-100',
             'drop-shadow-2xl',
-            'z-10'
+            'p-4','pt-5',
+            'sm:p-7',
+            'w-4/5',
+            'h-3/5',
+            'sm:h-4/5',
+            'z-10',
+            'md:w-3/5', 
+            'md:h-4/5',
+            'landscape:w-3/5',
+            'landscape:h-4/5'
         )
     
     modal.appendChild(modalHeader)    
     modal.appendChild(modalImg)    
-    modal.appendChild(modalIngridients)    
     modal.appendChild(modalDescription)    
+    modal.appendChild(modalIngridients)    
    
     //calling function to close the modal wheter clicking outside or clicking on close button 
     closeBtn.onclick = () => {closeModal(modalWrapper)}
