@@ -1,26 +1,29 @@
-/*  ---setting Global variables---   */
+/*  --- setting Global variables ---   */
 const bodyDom = document.getElementsByTagName('body')
 const card = document.querySelector('.card-container')
 const filterInput = document.getElementById('filter')
 const allBtn = document.getElementById('allBtn');
 const hotBtn = document.getElementById('hotBtn');
 const coldBtn = document.getElementById('coldBtn');
+const appTitle = document.getElementById('appTitle');
 
 let coffeeList = []
 
-//console.log(card);
-
-/*  function to load the API data  */
-async function getAPI (type, value) {
+/*  --- function to load the API data ---   */
+async function getAPI (type) {
     card.innerHTML=''
     
     try {
+
+        //fetching cold coffee api
         const urlColdCofee = await fetch('https://api.sampleapis.com/coffee/iced');
         const coldCofeeList = await urlColdCofee.json();
-        
+
+        //fetching hot coffee api
         const urlHotCofee = await fetch('https://api.sampleapis.com/coffee/hot');
         const hotCofeeList = await urlHotCofee.json();
         
+        //joining the two arrays
         coffeeList = [...hotCofeeList, ...coldCofeeList]
         console.log(coffeeList);
 
@@ -40,15 +43,14 @@ async function getAPI (type, value) {
 
         }
 
-
-       
     } catch (error) {
         console.log('Cannot load Hot cofee API');    
-        //console.log(error);    
     }
     
 }
 
+/*  --- Function to filter the coffes by rerendering the cards 
+        that matches the info typed on the input by the user ---    */
 function filterCoffee (value) {
 
     const filteredCoffee = []
@@ -69,10 +71,13 @@ function filterCoffee (value) {
     console.log(filteredCoffee);
 }
 
+//Function to close the modal screen
 function closeModal (modal) {
     modal.style.display = 'none'
 }
 
+/*  --- Function that creates a modal screen with tailwind classes and DOM elements
+     based on the clicked card content ---  */
 function modalCard (title, image, description, ingredients) {
 
    
@@ -154,6 +159,7 @@ function modalCard (title, image, description, ingredients) {
             'top-0',
             'left-0'
         )
+
     modal.classList.add(
             'modal',
             'bg-slate-100',
@@ -184,12 +190,15 @@ function modalCard (title, image, description, ingredients) {
         
 }
 
-/*  Function that create all HTML DOM tags that holds and display the API info  */
+/*  --- Function that create all HTML DOM tags that holds and display the API info ---  */
 function showCards (coffee, type) {
     
+    //main card content contains all info
     const cardContent = document.createElement('div') 
-    
+
+    //checks if the coffee is cold or hot and set a color and a text to each case 
     typeColor = type === 'hot' ? 'text-yellow-300' : 'text-teal-200'
+    
     const divType = document.createElement('small')
     divType.textContent = type
     divType.classList.add(
@@ -283,6 +292,7 @@ function showCards (coffee, type) {
     
 }
 
+//call a filter function every time an input is typed by the user
 filterInput.addEventListener('keyup', () => {
    
     /*  setting the first letter to uppercase
@@ -294,6 +304,7 @@ filterInput.addEventListener('keyup', () => {
     filterCoffee(inputCapitalized);
 })
 
+//buttons event for calling the api and filtering the coffees
 allBtn.addEventListener('click', () => {
     getAPI('all')
 })
@@ -304,5 +315,14 @@ coldBtn.addEventListener('click', () => {
     getAPI('cold')
 })
 
+//reloads the page on clicking on title 
+appTitle.addEventListener('click', () => {
+    window.location.reload();
+}) 
+appTitle.classList.add(
+        'cursor-pointer'
+    )
+
+//loads the API when the page is loaded the first time    
 document.addEventListener('load', getAPI('all'))
 
