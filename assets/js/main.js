@@ -75,8 +75,7 @@ function closeModal (modal) {
 
 function modalCard (title, image, description, ingredients) {
 
-    console.log(ingredients);
-
+   
     const modalWrapper = document.createElement('div')
     const modal = document.createElement('div')
     
@@ -92,7 +91,7 @@ function modalCard (title, image, description, ingredients) {
     
     const closeBtn = document.createElement('button')
     closeBtn.textContent = 'Close'
-    closeBtn.classList.add('modal-button', 'p-2', 'text-red-400','bg-gray-900','bg-opacity-10' , 'font-semibold', 'text-xl')
+    closeBtn.classList.add('modal-button', 'p-2', 'text-red-400','hover:text-red-600' ,'hover:bg-gray-900','hover:bg-opacity-10' , 'font-semibold', 'text-xl')
 
     modalHeader.classList.add(
             'flex',
@@ -125,6 +124,7 @@ function modalCard (title, image, description, ingredients) {
     modalDescription.textContent = description
 
     modalWrapper.classList.add(
+            'modal-wrapper',
             'bg-gray-900',
             'bg-opacity-30',
             'w-full', 
@@ -154,12 +154,13 @@ function modalCard (title, image, description, ingredients) {
     modal.appendChild(modalImg)    
     modal.appendChild(modalIngridients)    
     modal.appendChild(modalDescription)    
-    
-    closeBtn.addEventListener('click', () => {closeModal(modalWrapper)})
+   
+    //calling function to close the modal wheter clicking outside or clicking on close button 
+    closeBtn.onclick = () => {closeModal(modalWrapper)}
+    window.onclick = e => { if(e.target == modalWrapper) {closeModal(modalWrapper)} }
 
     modalWrapper.appendChild(modal)
     card.parentNode.appendChild(modalWrapper)
-
         
 }
 
@@ -250,9 +251,14 @@ function showCards (coffee, type) {
         )
     
     card.appendChild(cardContent)
+    
+    //creationg a copy of the ingredients p tag
+    const sendIngredients = document.createElement('p')
+    sendIngredients.innerHTML = divIngredients.innerHTML;
 
+    //sending the info to the modal function
     cardContent.addEventListener('click', () => {
-        modalCard(coffee.title, coffee.image, coffee.description, divIngredients);
+        modalCard(coffee.title, coffee.image, coffee.description, sendIngredients);
     })
     
 }
